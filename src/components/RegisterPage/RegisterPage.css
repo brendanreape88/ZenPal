@@ -1,0 +1,34 @@
+.RegisterPage__Main {
+  background-color: rgb(235, 212, 255);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.RegisterPage__Main h1 {
+  font-size: 36px;
+  padding: 20px;
+}
+
+.RegisterPage__Main label {
+  font-size: 18px;
+  font-weight: 200;
+  text-align: left;
+}
+
+.RegisterPage__Main input {
+  font-size: 18px;
+}
+
+.RegisterPage__Main button {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.Processing {
+  padding: 33px;
+  background-color: rgb(245, 245, 245);
+}

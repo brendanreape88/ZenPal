@@ -1,0 +1,35 @@
+.NotFoundPage__Main {
+  background-color: rgb(235, 212, 255);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.NotFoundPage__Main h1 {
+  font-size: 36px;
+  margin: 0;
+  padding: 33px;
+}
+
+.NotFoundPage__Main h3 {
+  font-size: 24px;
+  margin: 0;
+  padding: 33px;
+}
+
+.NotFoundPage__Main button {
+  margin-top: 33px;
+}
+
+.NotFoundPage__Main a {
+  text-decoration: none;
+  color: black;
+}
+
+.NotFoundPage__Main button {
+  font-size: 18px;
+  font-weight: 200;
+}

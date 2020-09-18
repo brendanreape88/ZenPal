@@ -1,0 +1,94 @@
+.Dashboard__Main {
+  background-color: rgb(235, 212, 255);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.EntriesBox {
+  width: 90%;
+}
+
+.EntriesBox ul {
+  padding: 0;
+}
+
+.Dashboard__Flex {
+  /* display: flex;
+  flex-direction: row; */
+}
+
+.ListItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.ListItem__Icon {
+  border: 1px solid black;
+  background-color: white;
+}
+
+.ListItem__Data {
+  background-color: white;
+  border: 1px solid black;
+  height: 35px;
+  padding: 3px;
+  text-align: center;
+  line-height: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ListItem__Icon {
+  font-size: 28px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.ViewerBox {
+  width: 300px;
+  border: 0.5px solid grey;
+  /* border-radius: 1%; */
+}
+
+.ViewerBox__Dash {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(1, 0, 82);
+  color: white;
+  padding: 3px;
+}
+
+.ViewerBox__Text {
+  background-color: white;
+  height: 300px;
+  text-align: left;
+  padding: 3px;
+}
+
+.Editor__TextArea {
+  background-color: white;
+  height: 300px;
+  width: 294px;
+  resize: none;
+}
+
+.DeleteBox {
+  background-color: rgb(255, 116, 255);
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+  padding: 10px;
+}
+
+.DeleteBox button {
+  margin-left: 3px;
+  margin-right: 3px;
+}
