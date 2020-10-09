@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ListItem from "./ListItem";
-import Context from "../RegisterPage/Context";
+import Context from "../../Context";
 import "./Dashboard.css";
 
 class Entries extends Component {

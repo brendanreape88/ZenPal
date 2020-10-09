@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Context from "../RegisterPage/Context";
+import Context from "../../Context";
 import Display from "./Display";
 import Entries from "./Entries";
 import Viewer from "./Viewer";

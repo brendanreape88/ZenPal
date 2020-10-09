@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Context from "../RegisterPage/Context";
+import Context from "../../Context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Header.css";
 
@@ -21,7 +21,7 @@ class Header extends Component {
   };
 
   render() {
-    const user = this.context.user;
+    const loggedIn = this.context.loggedIn;
     return (
       <>
         <nav className="Header">
@@ -44,7 +44,7 @@ class Header extends Component {
           </div>
           <div className="Header__DesktopLinks">
             <ul>
-              {user ? (
+              {loggedIn ? (
                 <>
                   <li>
                     <Link to="/" onClick={this.logOut}>
@@ -74,7 +74,7 @@ class Header extends Component {
         {this.state.showDropDown === true && (
           <div className="Header__MobileLinks">
             <ul>
-              {user ? (
+              {loggedIn ? (
                 <>
                   <li>
                     <Link to="/" onClick={this.logOut}>

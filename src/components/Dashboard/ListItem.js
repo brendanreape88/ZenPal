@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Context from "../RegisterPage/Context";
+import Context from "../../Context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Dashboard.css";
 

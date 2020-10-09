@@ -1,37 +1,40 @@
 import React, { Component } from "react";
-import Context from "../RegisterPage/Context";
+import Context from "../../Context";
 import "./LoginPage.css";
+import UsersApiService from "../../services/users-api-service";
+import TokenService from "../../services/token-service";
 
 class LoginPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      clickedLogIn: false,
-    };
-  }
+  state = {
+    clickedLogIn: false,
+  };
 
   static contextType = Context;
 
+  clickedLogIn = () => {
+    this.setState({ clickedLogIn: true });
+  };
+
   onLogin = (event) => {
     event.preventDefault();
+    this.clickedLogIn();
     const user_name = event.target.user_name.value;
-    const password = event.target.password.value;
-    const foundUser = this.context.users.filter(
-      (u) => u.user_name == user_name && u.user_password == password
-    );
-    if (foundUser.length === 0) {
-      alert("Incorrect username and password combination");
-    } else {
-      this.context.logIn(foundUser);
+    const user_password = event.target.password.value;
+    console.log("user_name & user_password", user_name, user_password);
+    UsersApiService.logInUser(user_name, user_password).then((res) => {
+      user_name.value = "";
+      user_password.value = "";
+      TokenService.saveAuthToken(res.authToken);
+      this.context.logIn();
       this.props.history.push("/dashboard");
-    }
+    });
   };
 
   render() {
     return (
       <div className="LoginPage">
         <main className="LoginPage__Main">
-          {this.props.clickedLogIn ? (
+          {this.state.clickedLogIn ? (
             <div className="Logging_In">
               <h3>logging in...</h3>
             </div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Context from "../RegisterPage/Context";
+import Context from "../../Context";
 import "./Dashboard.css";
 
 class Editor extends Component {

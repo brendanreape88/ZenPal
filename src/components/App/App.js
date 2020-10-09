@@ -9,44 +9,13 @@ import Register from "../RegisterPage/RegisterPage";
 import Dashboard from "../Dashboard/Dashboard";
 import Meditate from "../Meditate/Meditate";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
-import Context from "../RegisterPage/Context";
+import Context from "../../Context";
 
 class App extends React.Component {
   state = {
-    user: null,
-    users: [
-      {
-        user_id: 1,
-        user_name: "ZenPalDemo",
-        user_password: "ZenPalDemo1!",
-      },
-    ],
-    entries: [
-      {
-        user_id: 1,
-        id: 3,
-        date: "1/3/20",
-        duration: "30 mins.",
-        text:
-          "Man, I really needed this today. I feel so relaxed and at one with myself and the universe. I really couldn't ask for more than this!",
-      },
-      {
-        user_id: 1,
-        id: 2,
-        date: "1/2/20",
-        duration: "30 mins.",
-        text:
-          "Was feeling really stressed before I sat down to meditate this morning. I think doing that coffee detox is really getting to me.",
-      },
-      {
-        user_id: 1,
-        id: 1,
-        date: "1/1/20",
-        duration: "30 mins.",
-        text:
-          "Had a really nice meditation this morning. It was really, really good. Like, I couldn't believe it.",
-      },
-    ],
+    loggedIn: false,
+    users: [],
+    entries: [],
 
     registerNewUser: (desiredUsername, desiredPassword) => {
       const newUser = {
@@ -58,15 +27,23 @@ class App extends React.Component {
       this.setState({ user: newUser });
     },
 
-    logIn: (foundUser) => {
-      localStorage.setItem("zenpal-user", foundUser);
-      this.setState({ user: foundUser[0] });
+    logIn: () => {
+      this.setState({ loggedIn: true });
     },
 
     logOut: () => {
-      this.setState({ user: null });
-      localStorage.removeItem("zenpal-user");
+      this.setState({ loggedIn: false });
     },
+
+    // logIn: (foundUser) => {
+    //   localStorage.setItem("zenpal-user", foundUser);
+    //   this.setState({ user: foundUser[0] });
+    // },
+
+    // logOut: () => {
+    //   this.setState({ user: null });
+    //   localStorage.removeItem("zenpal-user");
+    // },
 
     submitTime: (timer) => {
       const duration = timer / 60;

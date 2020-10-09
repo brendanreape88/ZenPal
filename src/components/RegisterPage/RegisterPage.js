@@ -1,33 +1,39 @@
 import React, { Component } from "react";
-import Context from "./Context";
+import Context from "../../Context";
+import UsersApiService from "../../services/users-api-service";
 import "./RegisterPage.css";
 
 class RegisterPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      clickedRegister: false,
-    };
-  }
+  state = {
+    clickedRegister: false,
+  };
 
   static contextType = Context;
 
   onRegister = (event) => {
+    // event.preventDefault();
+    // const desiredUsername = event.target.user_name.value;
+    // const desiredPassword = event.target.password.value;
+    // const matchedUser = this.context.users.filter(
+    //   (u) => u.user_name === desiredUsername
+    // );
+    // const matchedUserName = matchedUser[0]
+    //   ? matchedUser[0].user_name
+    //   : "no match";
+    // if (matchedUserName == desiredUsername) {
+    //   alert("Username already in use. Please choose another name.");
+    // } else {
+    //   this.context.registerNewUser(desiredUsername, desiredPassword);
+    //   this.props.history.push("/dashboard");
+    // }
     event.preventDefault();
-    const desiredUsername = event.target.user_name.value;
-    const desiredPassword = event.target.password.value;
-    const matchedUser = this.context.users.filter(
-      (u) => u.user_name === desiredUsername
-    );
-    const matchedUserName = matchedUser[0]
-      ? matchedUser[0].user_name
-      : "no match";
-    if (matchedUserName == desiredUsername) {
-      alert("Username already in use. Please choose another name.");
-    } else {
-      this.context.registerNewUser(desiredUsername, desiredPassword);
+    const user_name = event.target.user_name.value;
+    const password = event.target.password.value;
+    this.setState({ clickedRegister: true });
+    UsersApiService.registerUser(user_name, password).then((user) => {
+      this.context.updateUser(user);
       this.props.history.push("/dashboard");
-    }
+    });
   };
 
   render() {
