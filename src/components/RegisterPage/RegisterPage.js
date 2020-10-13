@@ -1,38 +1,38 @@
 import React, { Component } from "react";
 import Context from "../../Context";
 import UsersApiService from "../../services/users-api-service";
+import { Link } from "react-router-dom";
 import "./RegisterPage.css";
 
 class RegisterPage extends Component {
   state = {
-    clickedRegister: false,
+    showRegister: true,
+    registering: false,
+    showSuccess: false,
   };
 
   static contextType = Context;
 
   onRegister = (event) => {
-    // event.preventDefault();
-    // const desiredUsername = event.target.user_name.value;
-    // const desiredPassword = event.target.password.value;
-    // const matchedUser = this.context.users.filter(
-    //   (u) => u.user_name === desiredUsername
-    // );
-    // const matchedUserName = matchedUser[0]
-    //   ? matchedUser[0].user_name
-    //   : "no match";
-    // if (matchedUserName == desiredUsername) {
-    //   alert("Username already in use. Please choose another name.");
-    // } else {
-    //   this.context.registerNewUser(desiredUsername, desiredPassword);
-    //   this.props.history.push("/dashboard");
-    // }
     event.preventDefault();
     const user_name = event.target.user_name.value;
-    const password = event.target.password.value;
-    this.setState({ clickedRegister: true });
-    UsersApiService.registerUser(user_name, password).then((user) => {
-      this.context.updateUser(user);
-      this.props.history.push("/dashboard");
+    const user_password = event.target.password.value;
+    this.setState({
+      showRegister: false,
+      registering: true,
+      showSuccess: false,
+    });
+    UsersApiService.registerUser(user_name, user_password).then((user) => {
+      //this.context.updateUser(user);
+      console.log(
+        "Hey, this is the user sent from the server. You might not even need this data in the response from the server.",
+        user
+      );
+      this.setState({
+        showRegister: false,
+        registering: false,
+        showSuccess: true,
+      });
     });
   };
 
@@ -40,11 +40,7 @@ class RegisterPage extends Component {
     return (
       <div className="RegisterPage">
         <main className="RegisterPage__Main">
-          {this.state.clickedRegister ? (
-            <div className="Processing">
-              <h3>processing...</h3>
-            </div>
-          ) : (
+          {this.state.showRegister && (
             <>
               <h1>Register</h1>
               <form onSubmit={this.onRegister}>
@@ -59,6 +55,20 @@ class RegisterPage extends Component {
                 <br />
                 <button>submit</button>
               </form>
+            </>
+          )}
+
+          {this.state.registering && (
+            <div className="Processing">
+              <h3>registering...</h3>
+            </div>
+          )}
+
+          {this.state.showSuccess && (
+            <>
+              <h1>Success!</h1>
+              <h2>Let's login to your new account</h2>
+              <Link to="/login">login</Link>
             </>
           )}
         </main>

@@ -22,8 +22,9 @@ class LoginPage extends Component {
     const user_password = event.target.password.value;
     console.log("user_name & user_password", user_name, user_password);
     UsersApiService.logInUser(user_name, user_password).then((res) => {
-      user_name.value = "";
-      user_password.value = "";
+      // user_name.value = "";
+      // user_password.value = "";
+      console.log(res);
       TokenService.saveAuthToken(res.authToken);
       this.context.logIn();
       this.props.history.push("/dashboard");

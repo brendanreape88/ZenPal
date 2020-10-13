@@ -35,16 +35,6 @@ class App extends React.Component {
       this.setState({ loggedIn: false });
     },
 
-    // logIn: (foundUser) => {
-    //   localStorage.setItem("zenpal-user", foundUser);
-    //   this.setState({ user: foundUser[0] });
-    // },
-
-    // logOut: () => {
-    //   this.setState({ user: null });
-    //   localStorage.removeItem("zenpal-user");
-    // },
-
     submitTime: (timer) => {
       const duration = timer / 60;
       const topEntryId = this.state.entries[0].id
@@ -97,6 +87,11 @@ class App extends React.Component {
       this.setState({ entries: sortedArray });
     },
   };
+
+  componentDidMount() {
+    if (this.state.loggedIn) {
+    }
+  }
 
   render() {
     const alert = this.props.alert;
