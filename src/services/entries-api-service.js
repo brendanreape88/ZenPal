@@ -1,9 +1,10 @@
 import config from "../config";
+import TokenService from "../services/token-service";
 
 const EntriesApiService = {
   getEntriesForUser(user_id) {
     return fetch(`${config.API_ENDPOINT}/users/${user_id}/entries`, {
-      headers: {},
+      headers: { authorization: `bearer ${TokenService.getAuthToken()}` },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
@@ -13,6 +14,7 @@ const EntriesApiService = {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         date,
@@ -29,6 +31,7 @@ const EntriesApiService = {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({ text }),
     }).then((res) =>
@@ -40,6 +43,7 @@ const EntriesApiService = {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
