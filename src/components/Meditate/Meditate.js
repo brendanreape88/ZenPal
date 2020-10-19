@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Context from "../../Context";
 import { Howl, Howler } from "howler";
-import "../Audio/SingingBowlSound.mp3";
 import "./Meditate.css";
 
 class Meditate extends Component {
