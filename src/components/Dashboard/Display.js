@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import Context from "../../Context";
+import config from "../../config";
 import "./Dashboard.css";
 
 class Display extends Component {
   static contextType = Context;
   render() {
-    const userId = this.context.user.user_id;
     const entries = this.context.entries;
-    const numberOfMeditations = entries.filter((e) => e.user_id == userId)
-      .length;
+    const numberOfMeditations = entries.length;
+    const user_name = localStorage.getItem(config.USER_NAME);
     return (
       <div className="Dashboard__Flex">
         <div className="Welcome">
-          <h1>Hi, {this.context.user.user_name}</h1>
+          <h1>Hi, {user_name}</h1>
         </div>
         <div className="Status">
           <h2>You've recorded {numberOfMeditations} meditations!</h2>

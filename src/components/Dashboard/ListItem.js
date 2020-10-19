@@ -7,7 +7,9 @@ class ListItem extends Component {
   static contextType = Context;
 
   render() {
-    const { entry } = this.props;
+    const entry = this.props.entry
+      ? this.props.entry
+      : { date: "none", duration: "none", text: "none", id: "none" };
     return (
       <div className="ListItem">
         <div className="ListItem__Icon">

@@ -9,6 +9,7 @@ class RegisterPage extends Component {
     showRegister: true,
     registering: false,
     showSuccess: false,
+    error: null,
   };
 
   static contextType = Context;
@@ -21,19 +22,28 @@ class RegisterPage extends Component {
       showRegister: false,
       registering: true,
       showSuccess: false,
+      error: null,
     });
-    UsersApiService.registerUser(user_name, user_password).then((user) => {
-      //this.context.updateUser(user);
-      console.log(
-        "Hey, this is the user sent from the server. You might not even need this data in the response from the server.",
-        user
-      );
-      this.setState({
-        showRegister: false,
-        registering: false,
-        showSuccess: true,
+    UsersApiService.registerUser(user_name, user_password)
+      .then((res) => {
+        console.log("RES", res);
+        this.setState({
+          showRegister: false,
+          registering: false,
+          showSuccess: true,
+          error: null,
+        });
+      })
+      .catch((err) => {
+        console.log("ERR", err);
+        this.setState({
+          showRegister: true,
+          registering: false,
+          showSuccess: false,
+          error: err.error,
+        });
+        console.log(this.state.error);
       });
-    });
   };
 
   render() {
@@ -52,6 +62,9 @@ class RegisterPage extends Component {
                 <br />
                 <input type="password" name="password" id="password" required />
                 <br />
+                <div className="Error">
+                  {this.state.error && <span>{this.state.error}</span>}
+                </div>
                 <br />
                 <button>submit</button>
               </form>

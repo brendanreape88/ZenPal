@@ -4,6 +4,8 @@ import Display from "./Display";
 import Entries from "./Entries";
 import Viewer from "./Viewer";
 import Editor from "./Editor";
+import config from "../../config";
+import EntriesApiService from "../../services/entries-api-service";
 import "./Dashboard.css";
 
 class Dashboard extends Component {
@@ -65,8 +67,18 @@ class Dashboard extends Component {
       showDeleteWarning: false,
     });
     const id = this.state.id;
+    console.log("ID OF ENTRY TO DELETE", id);
     this.context.deleteEntry(id);
   };
+
+  componentDidMount() {
+    const user_id = localStorage.getItem(config.USER_ID);
+    if (user_id) {
+      EntriesApiService.getEntriesForUser(user_id).then((entries) => {
+        this.context.updateEntries(entries);
+      });
+    }
+  }
 
   render() {
     return (

@@ -32,3 +32,8 @@
   padding: 33px;
   background-color: rgb(245, 245, 245);
 }
+
+.Error {
+  background-color: rgb(255, 116, 255);
+  width: 195px;
+}

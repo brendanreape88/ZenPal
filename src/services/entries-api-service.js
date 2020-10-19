@@ -28,7 +28,7 @@ const EntriesApiService = {
   },
   updateTextForEntry(text, entry_id) {
     return fetch(`${config.API_ENDPOINT}/users/entries/${entry_id}`, {
-      method: "POST",
+      method: "PUT",
       headers: {
         "content-type": "application/json",
         authorization: `bearer ${TokenService.getAuthToken()}`,
@@ -45,9 +45,7 @@ const EntriesApiService = {
         "content-type": "application/json",
         authorization: `bearer ${TokenService.getAuthToken()}`,
       },
-    }).then((res) =>
-      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
-    );
+    });
   },
 };
 

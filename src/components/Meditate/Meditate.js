@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Context from "../../Context";
+import { Howl, Howler } from "howler";
+import "../Audio/SingingBowlSound.mp3";
 import "./Meditate.css";
 
 class Meditate extends Component {
@@ -27,6 +29,7 @@ class Meditate extends Component {
         this.setState({ timer: this.state.timer - 1 });
       } else {
         clearInterval(this.timerInterval);
+        this.soundPlay();
       }
     }, 1000);
   };
@@ -39,6 +42,14 @@ class Meditate extends Component {
     const entry = e.target.textarea.value;
     this.context.submitNewEntry(entry);
     setTimeout(() => this.props.history.push("/dashboard"), 2000);
+  };
+
+  soundPlay = () => {
+    const sound = new Howl({
+      src: ["SingingBowlSound.mp3"],
+      volume: 1.0,
+    });
+    sound.play();
   };
 
   render() {

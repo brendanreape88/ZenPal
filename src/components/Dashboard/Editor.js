@@ -17,10 +17,12 @@ class Editor extends Component {
     this.props.showEntries();
   };
   render() {
-    const id = this.props.state.id;
+    const id = this.props.state ? this.props.state.id : 0;
     const entries = this.context.entries;
     const foundEntry = entries.filter((e) => e.id === id);
-    const entry = foundEntry[0];
+    const entry = foundEntry[0]
+      ? foundEntry[0]
+      : { date: "none", duration: "none", text: "none" };
     return (
       <div className="ViewerBox">
         <div className="ViewerBox__Dash">
