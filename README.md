@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ZenPal
 
-## Available Scripts
+**Live:** https://zenpal-hi7mwgkd5.vercel.app/
 
-In the project directory, you can run:
+## Description:
 
-### `npm start`
+Smoothie.io helps you find amazing smoothie recipes, and also lets you customize them or create them from scratch. Once you’ve perfected your recipe, publish it to share it with the world!
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Login Credentials:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Username: greenguru<br/>
+Password: Greenguru1!
 
-### `npm test`
+## Browsing Recipes:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![list of smoothies](./images/browse.png)
 
-### `npm run build`
+Once logged in, head to the ‘/home’ path to see a list of all the existing smoothies in the database. The navigation links above the recipes allow you to filter the list of displayed recipes by your favorites, as well as the recipes you’ve published. To add or remove a smoothie to your favorites list, simply click the “favorite” button on the recipe.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Creating A Recipe:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![display for creating smoothies](./images/create.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To create a recipe, head to the ‘/create’ path and check out the accordion menu of ingredients. Click on a category to see the full list of ingredients. Once you find what you’re looking for, enter the amount of the item you want, as well as the units of measurement (ie: cup, spoonful, oz., whole, bunch, etc.) then click “add.” You’ll see your newly added ingredient in the box above. Keep adding ingredients until you’ve constructed the perfect recipe, then give it a great name, and click “publish” to add it to the Smoothie.io database.
 
-### `npm run eject`
+## Add An Ingredient To The Database:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![form for adding new ingredients](./images/add-ingredient.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To add an ingredient to the database, look directly below the accordion menu and click “add new ingredient.” This will open a form where you can specify the category of the ingredient along with its name. Click “add” to send it to the database.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Customize A Smoothie:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![display for customizing a smoothie](./images/customize.png)
 
-## Learn More
+To customize an existing recipe, simply find the recipe you wish to work with, then click “customize.” You’ll once again be taken to the ‘/create’ path, but this time all of the fields will be pre-populated for you. Simply remove the ingredients you don’t want by clicking the “x” button next to them, then head back to the accordion menu to add any additional ingredients you want.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technology Used:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**HTML5, CSS3, JavaScript, React, Node.js, Express, Postgres**
