@@ -1,39 +1,28 @@
 # ZenPal
 
-**Live:** https://zenpal-hi7mwgkd5.vercel.app/
+**Live:** https://zenpal-nfwfgu6uj.vercel.app/
 
 ## Description:
 
-Smoothie.io helps you find amazing smoothie recipes, and also lets you customize them or create them from scratch. Once you’ve perfected your recipe, publish it to share it with the world!
+ZenPal makes it easy for you to time and reflect on your daily meditations!
+Simply head to the "meditate" section, select a time length, and begin your practice. A singing bowl will ring when your time is up and you will be greeted with a blank page to journal your experience in. You can also easily browse through your recorded entries and be amazed at the progress you've made with your practice.
 
 ## Login Credentials:
 
-Username: greenguru<br/>
-Password: Greenguru1!
+Username: ZenPalDemo<br/>
+Password: ZenPalDemo1!
 
-## Browsing Recipes:
+## Your First Meditation:
 
-![list of smoothies](./images/browse.png)
+![meditation time selector](./images/meditation_timer.png)
 
-Once logged in, head to the ‘/home’ path to see a list of all the existing smoothies in the database. The navigation links above the recipes allow you to filter the list of displayed recipes by your favorites, as well as the recipes you’ve published. To add or remove a smoothie to your favorites list, simply click the “favorite” button on the recipe.
+Once logged in, click on "meditate" in the naigation bar. Choose the amount of time you'd like to meditate, then click "start." Your timer will begin counting down, and once it finishes, you'll be signaled to end your practice by the sound of a singing bowl. When you open your eyes, you'll see a blank space in which you can record any reflections you have about your experience. Your journal entry will be saved in te ZenPal database for you.
 
-## Creating A Recipe:
+## Navigating Your Journal:
 
-![display for creating smoothies](./images/create.png)
+![display for creating smoothies](./images/journal_entries.png)
 
-To create a recipe, head to the ‘/create’ path and check out the accordion menu of ingredients. Click on a category to see the full list of ingredients. Once you find what you’re looking for, enter the amount of the item you want, as well as the units of measurement (ie: cup, spoonful, oz., whole, bunch, etc.) then click “add.” You’ll see your newly added ingredient in the box above. Keep adding ingredients until you’ve constructed the perfect recipe, then give it a great name, and click “publish” to add it to the Smoothie.io database.
-
-## Add An Ingredient To The Database:
-
-![form for adding new ingredients](./images/add-ingredient.png)
-
-To add an ingredient to the database, look directly below the accordion menu and click “add new ingredient.” This will open a form where you can specify the category of the ingredient along with its name. Click “add” to send it to the database.
-
-## Customize A Smoothie:
-
-![display for customizing a smoothie](./images/customize.png)
-
-To customize an existing recipe, simply find the recipe you wish to work with, then click “customize.” You’ll once again be taken to the ‘/create’ path, but this time all of the fields will be pre-populated for you. Simply remove the ingredients you don’t want by clicking the “x” button next to them, then head back to the accordion menu to add any additional ingredients you want.
+To view a record of your journal entries, click "dashboard" in the navigation bar. Here you'll see a list of each journal entry you've submitted to the database. If you set a timer for your meditation but did not enter a journal entry, you can find a record for that as well. The buttons to the right of each item in the list allow you to either view your journal entry in its entirety, edit your entry, or delete it. If you click the "delete" button, a warning message will appear and give you the choice to confirm the deletion or not.
 
 ## Technology Used:
 
