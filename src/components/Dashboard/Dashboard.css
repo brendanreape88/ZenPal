@@ -11,15 +11,11 @@
 
 .EntriesBox {
   width: 90%;
+  max-width: 600px;
 }
 
 .EntriesBox ul {
   padding: 0;
-}
-
-.Dashboard__Flex {
-  /* display: flex;
-  flex-direction: row; */
 }
 
 .ListItem {
@@ -38,11 +34,12 @@
   border: 1px solid black;
   height: 35px;
   padding: 3px;
-  text-align: center;
+  text-align: left;
   line-height: 35px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
 }
 
 .ListItem__Icon {
@@ -51,10 +48,28 @@
   padding-right: 7px;
 }
 
+/* span {
+  font-size: 18px;
+  font-weight: 200;
+} */
+
+.Date {
+  padding-left: 5px;
+}
+
+.Duration {
+  font-weight: bold;
+  color: rgb(255, 123, 123);
+  padding-left: 5px;
+}
+
+.Text {
+  padding-left: 5px;
+}
+
 .ViewerBox {
   width: 300px;
   border: 0.5px solid grey;
-  /* border-radius: 1%; */
 }
 
 .ViewerBox__Dash {

@@ -7,14 +7,11 @@ class Viewer extends Component {
 
   render() {
     const id = this.props.state.id;
-    console.log("THIS IS THE ID", id);
     const entries = this.context.entries;
-    console.log(entries);
     const foundEntry = entries.filter((e) => e.id === id);
     const entry = foundEntry[0]
       ? foundEntry[0]
       : { date: "none", duration: "none", text: "none", id: "none" };
-    console.log(entry);
     return (
       <div className="ViewerBox">
         <div className="ViewerBox__Dash">

@@ -16,7 +16,10 @@ class ListItem extends Component {
           <FontAwesomeIcon icon="pen" />
         </div>
         <div className="ListItem__Data">
-          <span>{entry.date + " " + entry.duration + " " + entry.text}</span>
+          {/* <span>{entry.date + " " + entry.duration + " " + entry.text}</span> */}
+          <span className="Date">{entry.date}</span>
+          <span className="Duration">{entry.duration}</span>
+          <span className="Text">{entry.text}</span>
         </div>
         <button
           onClick={() => this.props.showViewer(entry.id)}

@@ -18,6 +18,12 @@ class Dashboard extends Component {
     showDeleteWarning: false,
   };
 
+  //The Dashboard is the place the user can view their journal entries as a list,
+  //or as a single entry, as well as edit and delete their entries. I've used the
+  //state within the Dashboard component to make conditional rendering of the various
+  //views easy. These views include the list of entries (Entries), a single entry (Viewer),
+  //and a form for editing a single entry (Editor).
+
   showEntries = () => {
     this.setState({
       entries: true,
@@ -67,7 +73,6 @@ class Dashboard extends Component {
       showDeleteWarning: false,
     });
     const id = this.state.id;
-    console.log("ID OF ENTRY TO DELETE", id);
     this.context.deleteEntry(id);
   };
 

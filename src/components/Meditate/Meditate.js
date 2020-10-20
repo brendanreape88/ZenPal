@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Context from "../../Context";
-import { Howl, Howler } from "howler";
+import { Howl } from "howler";
 import "./Meditate.css";
 
 class Meditate extends Component {
@@ -43,6 +43,9 @@ class Meditate extends Component {
     setTimeout(() => this.props.history.push("/dashboard"), 2000);
   };
 
+  //Here I used the npm package Howler to create a function that
+  //will play the singing bowl sound to signal to the user that
+  //their meditation time has ended.
   soundPlay = () => {
     const sound = new Howl({
       src: ["SingingBowlSound.mp3"],
@@ -61,7 +64,8 @@ class Meditate extends Component {
               <h3>Choose your meditation length below.</h3>
               <form onSubmit={(e) => this.handleSubmit(e)}>
                 <select className="TimeSelect" name="meditateTime">
-                  <option value="2">2 seconds</option>
+                  {/* The "2 seconds" timer option is just for testing purposes. */}
+                  <option value="2">2 seconds.</option>
                   <option value="300">5 mins.</option>
                   <option value="600">10 mins.</option>
                   <option value="900">15 mins.</option>

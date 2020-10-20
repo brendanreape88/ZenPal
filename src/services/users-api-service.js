@@ -2,7 +2,6 @@ import config from "../config";
 
 const UsersApiService = {
   logInUser(user_name, user_password) {
-    console.log("USER_NAME, USER_PASSWORD", user_name, user_password);
     return fetch(`${config.API_ENDPOINT}/users/login`, {
       method: "POST",
       headers: {

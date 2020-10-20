@@ -26,7 +26,6 @@ class RegisterPage extends Component {
     });
     UsersApiService.registerUser(user_name, user_password)
       .then((res) => {
-        console.log("RES", res);
         this.setState({
           showRegister: false,
           registering: false,
@@ -35,14 +34,12 @@ class RegisterPage extends Component {
         });
       })
       .catch((err) => {
-        console.log("ERR", err);
         this.setState({
           showRegister: true,
           registering: false,
           showSuccess: false,
           error: err.error,
         });
-        console.log(this.state.error);
       });
   };
 

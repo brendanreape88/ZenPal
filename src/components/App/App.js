@@ -18,7 +18,6 @@ class App extends React.Component {
   state = {
     loggedIn: false,
     entries: [],
-    entryId: null,
     error: null,
 
     logIn: () => {
@@ -35,12 +34,11 @@ class App extends React.Component {
     updateEntries: (entries) => {
       const sortedEntries = entries.sort((a, b) => b.id - a.id);
       this.setState({ entries: sortedEntries });
-      console.log(
-        "THESE ARE THE ENTRIES IN STATE FOR THE USER",
-        this.state.entries
-      );
     },
 
+    //When the user begins their meditation timer, immediately a new entry is saved in the database.
+    //This entry has a filler text which is replaced with a PUT request when the user fills out their
+    //journal entry and submits it to the database.
     submitTime: (timer) => {
       const duration = timer / 60;
       let now = new Date();
@@ -59,33 +57,14 @@ class App extends React.Component {
     },
 
     deleteEntry: (entry_id) => {
-      // const newEntriesList = this.state.entries.filter((f) => f.id !== id);
-      // this.setState({ entries: newEntriesList });
-      EntriesApiService.deleteEntry(entry_id).then((res) => {
+      EntriesApiService.deleteEntry(entry_id).then(() => {
         const user_id = localStorage.getItem(config.USER_ID);
         EntriesApiService.getEntriesForUser(user_id).then((entries) => {
           this.state.updateEntries(entries);
         });
       });
     },
-
-    editText: (id, newText) => {
-      const foundEntry = this.state.entries.find((f) => f.id === id);
-      const editedEntry = {
-        user_id: foundEntry.user_id,
-        id: foundEntry.id,
-        date: foundEntry.date,
-        duration: foundEntry.duration,
-        text: newText,
-      };
-      const removeOldEntryArray = this.state.entries.filter((f) => f.id !== id);
-      const newEntriesArray = removeOldEntryArray.concat(editedEntry);
-      const sortedArray = newEntriesArray.sort((a, b) => b.id - a.id);
-      this.setState({ entries: sortedArray });
-    },
   };
-
-  componentDidMount() {}
 
   render() {
     const alert = this.props.alert;
