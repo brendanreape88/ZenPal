@@ -5,6 +5,7 @@ import "./Dashboard.css";
 class Editor extends Component {
   state = {
     editedText: null,
+    saved: false,
   };
   static contextType = Context;
   updateText = (e) => {
@@ -13,8 +14,11 @@ class Editor extends Component {
     this.setState({ editedText: text });
   };
   sendEditedEntry = (id, newText) => {
-    this.context.editText(id, newText);
-    this.props.showEntries();
+    const entry_id = id;
+    const text = newText;
+    this.setState({ saved: true });
+    this.context.submitEditedEntry(text, entry_id);
+    setTimeout(() => this.props.showEntries(), 1000);
   };
   render() {
     const id = this.props.state ? this.props.state.id : 0;
@@ -24,30 +28,37 @@ class Editor extends Component {
       ? foundEntry[0]
       : { date: "none", duration: "none", text: "none" };
     return (
-      <div className="ViewerBox">
-        <div className="ViewerBox__Dash">
-          <div className="Dash__Data">
-            <span className="Dash__DateAndDuration">
-              {entry.date + " " + entry.duration}
-            </span>
+      <>
+        <div className="ViewerBox">
+          <div className="ViewerBox__Dash">
+            <div className="Dash__Data">
+              <span className="Dash__DateAndDuration">
+                {entry.date + " " + entry.duration}
+              </span>
+            </div>
+            <div className="Dash__Buttons">
+              <button
+                onClick={() => this.sendEditedEntry(id, this.state.editedText)}
+              >
+                save
+              </button>
+              <button onClick={this.props.showEntries}>exit</button>
+            </div>
           </div>
-          <div className="Dash__Buttons">
-            <button
-              onClick={() => this.sendEditedEntry(id, this.state.editedText)}
-            >
-              save
-            </button>
-            <button onClick={this.props.showEntries}>exit</button>
-          </div>
+          <form className="Editor__Form">
+            <textarea
+              className="Editor__TextArea"
+              defaultValue={entry.text}
+              onChange={(e) => this.updateText(e)}
+            />
+          </form>
         </div>
-        <form className="Editor__Form">
-          <textarea
-            className="Editor__TextArea"
-            defaultValue={entry.text}
-            onChange={(e) => this.updateText(e)}
-          />
-        </form>
-      </div>
+        {this.state.saved && (
+          <div className="Saved">
+            <span>success!</span>
+          </div>
+        )}
+      </>
     );
   }
 }

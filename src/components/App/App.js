@@ -18,6 +18,7 @@ class App extends React.Component {
   state = {
     loggedIn: false,
     entries: [],
+    entryId: null,
     error: null,
 
     logIn: () => {
@@ -54,6 +55,15 @@ class App extends React.Component {
     submitNewEntry: (text) => {
       const entry_id = this.state.entryId;
       EntriesApiService.updateTextForEntry(text, entry_id);
+    },
+
+    submitEditedEntry: (text, entry_id) => {
+      EntriesApiService.updateTextForEntry(text, entry_id).then(() => {
+        const user_id = localStorage.getItem(config.USER_ID);
+        EntriesApiService.getEntriesForUser(user_id).then((entries) => {
+          this.state.updateEntries(entries);
+        });
+      });
     },
 
     deleteEntry: (entry_id) => {
