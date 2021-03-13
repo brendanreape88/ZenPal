@@ -13,7 +13,7 @@ class HowItWorks extends Component {
         <div className="LandingPage__HowItWorks__Box">
           <div class="HowItWorks__Item">
             <img class="HowItWorks__Icon" src={witness} alt="eye symbol" />
-            <span>Login to check out your meditation dashboard.</span>
+            <span>Login to view your meditation dashboard.</span>
           </div>
           <div class="HowItWorks__Item">
             <img
@@ -36,18 +36,42 @@ class HowItWorks extends Component {
               experience.
             </span>
           </div>
-          {/* <ul>
-            <li>Register/Login to check out your meditation dashboard.</li>
-            <br />
-            <li>When you're ready to meditate, click the "meditate" button.</li>
-            <br />
-            <li>Set your timer and begin your practice.</li>
-            <br />
-            <li>
-              Once you're done, fill out a new journal entry outlining your
-              experience and the benefits you got from your practice.
-            </li>
-          </ul> */}
+        </div>
+
+        <div className="LandingPage__HowItWorks__Grid">
+          <div class="HowItWorks__2ItemRow">
+            <div class="HowItWorks__Item">
+              <img class="HowItWorks__Icon" src={witness} alt="eye symbol" />
+              <span>Login to view your meditation dashboard.</span>
+            </div>
+            <div class="HowItWorks__Item">
+              <img
+                class="HowItWorks__Icon"
+                src={meditation}
+                alt="meditation symbol"
+              />
+              <span>
+                When you're ready to meditate, click the "meditate" button.
+              </span>
+            </div>
+          </div>
+          <div class="HowItWorks__2ItemRow">
+            <div class="HowItWorks__Item">
+              <img class="HowItWorks__Icon" src={timer} alt="timer symbol" />
+              <span>Set your timer and begin your practice.</span>
+            </div>
+            <div class="HowItWorks__Item">
+              <img
+                class="HowItWorks__Icon"
+                src={writing}
+                alt="writing symbol"
+              />
+              <span>
+                Once you're done, fill out a new journal entry outlining your
+                experience.
+              </span>
+            </div>
+          </div>
         </div>
       </section>
     );

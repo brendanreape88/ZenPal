@@ -1,15 +1,11 @@
 .LandingPage {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   background-color: rgb(235, 212, 255);
 }
 
 .LandingPage__Main {
-  /* padding-top: 50px; */
-  /* padding-right: 10px; */
   padding-bottom: 50px;
-  /* padding-left: 10px; */
   text-align: center;
 }
 
@@ -55,13 +51,11 @@ h4 {
 }
 
 .LandingPage__Hero {
-  /* padding: 20px; */
-  background-image: url(../../assets/meditation-hero.png);
-  background-position: 0% 20%;
-  background-size: cover;
+  background-color: white;
   height: 450px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .LandingPage__HowItWorks {
@@ -69,9 +63,9 @@ h4 {
 }
 
 .LandingPage__HowItWorks__Box {
-  /* border: 1px solid black; */
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -95,8 +89,7 @@ h4 {
 }
 
 .Text__Container {
-  width: 50%;
-  margin-left: 10%;
+  width: 80%;
 }
 
 .HowItWorks__Item {
@@ -144,23 +137,73 @@ h4 {
   border-radius: 10px;
 }
 
+.LandingPage__HowItWorks__Grid {
+  display: none;
+}
+
 @media only screen and (min-width: 481px) {
-  .LandingPage__Main {
-    /* max-width: 600px; */
+  .LandingPage__Hero {
+    /* padding: 20px; */
+    background-image: url(../../assets/meditation-hero.png);
+    background-position: 60% 30%;
+    background-size: cover;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .LandingPage__HowItWorks__Box {
+    display: none;
+  }
+
+  .LandingPage__HowItWorks__Grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .HowItWorks__2ItemRow {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .Text__Container {
+    width: 60%;
+    margin-left: 10%;
   }
 }
 
 @media only screen and (min-width: 835px) {
-  .LandingPage__Main {
-    /* max-width: 1000px; */
+  .LandingPage__Hero {
+    /* padding: 20px; */
+    background-image: url(../../assets/meditation-hero.png);
+    background-position: 0% 30%;
+    background-size: cover;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   .LandingPage__HowItWorks__Box {
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
   }
 
   .LandingPage__HowItWorks__Box img {
     height: 500px;
+  }
+
+  .LandingPage__HowItWorks__Grid {
+    display: none;
+  }
+
+  .Text__Container {
+    width: 50%;
+    margin-left: 10%;
   }
 }
