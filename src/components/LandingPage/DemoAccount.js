@@ -8,14 +8,19 @@ class DemoAccount extends Component {
         <h3>Demo Account</h3>
         <div className="LandingPage__DemoAccount__Box">
           <span>
-            To log in, either register, or use the demo credientials below.
+            To log in, either register, or use the demo login credientials
+            below.
           </span>
           <br />
           <br />
-          <span>User: ZenPalDemo</span>
+          <span>
+            <strong>User:</strong> ZenPalDemo
+          </span>
           <br />
           <br />
-          <span>Password: ZenPalDemo1!</span>
+          <span>
+            <strong>Password:</strong> ZenPalDemo1!
+          </span>
           <br />
           <br />
         </div>
