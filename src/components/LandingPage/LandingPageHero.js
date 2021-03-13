@@ -5,12 +5,14 @@ class LandingPageHero extends Component {
   render() {
     return (
       <header className="LandingPage__Hero">
-        <h1>Your online meditation diary.</h1>
-        <h2>
-          ZenPal makes it easy to time and reflect on your daily meditations.
-          Writing about the benefits of your practice is one of the best
-          motivational aids in keeping your practice consistent.
-        </h2>
+        <div class="Text__Container">
+          <h1>Your Online Meditation Companion.</h1>
+          <h2>
+            ZenPal is an easy-to-use meditation timer and diary app that helps
+            you stay consistent with one of your most important self-care
+            practices.
+          </h2>
+        </div>
       </header>
     );
   }
